@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+
+<section id="home" class="s-home target-section">
+    <div class="shadow-overlay"></div>
+
+    {% block content %}{% endblock %}
+
+    <ul class="home-sidelinks">
+        {% for item in sidelinks %}
+        {% if item.http %}
+        <li onclick="{{ item.onclick }}"><a class="{{ item.css_classes }}"
+                href="{{ item.link }}">{{ item.name }}<span>{{ item.subtitle }}</span></a></li>
+        {% else %}
+        <li onclick="{{ item.onclick }}"><a class="{{ item.css_classes }}"
+                href="{{ url_for(item.link) }}">{{ item.name }}<span>{{ item.subtitle }}</span></a></li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+</section>
+
+{% endblock %}
