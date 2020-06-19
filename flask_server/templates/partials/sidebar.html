@@ -1,6 +1,6 @@
 <header class="s-header">
     <div class="header-logo">
-        <a class="site-logo" href="{{ url_for('.home') }}">
+        <a class="site-logo" href="{{ url_for('home.home') }}">
             <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
         </a>
     </div>
@@ -12,7 +12,7 @@
             <ul class="header-nav__list">
                 {% for item in sidebar %}
                 {% if item.http == true %}
-                <li><a class="" href="{{ item.link }}" title="{{ item.name }}">{{ item.name }}</a></li>
+                <li><a class="" href="controllers{{ item.link }}" title="{{ item.name }}">{{ item.name }}</a></li>
                 {% else %}
                 <li><a class="" href="{{ url_for(item.link) }}" title="{{ item.name }}">{{ item.name }}</a></li>
                 {% endif %}

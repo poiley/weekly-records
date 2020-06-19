@@ -1,0 +1,13 @@
+.buttons-container {
+    margin-top: 4%;
+}
+
+.sign-up-button {
+    float: right;
+    background-color: whitesmoke;
+}
+
+.sign-in-button {
+    float: left; 
+    background-color: whitesmoke;
+}
