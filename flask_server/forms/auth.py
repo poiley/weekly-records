@@ -9,7 +9,6 @@ class SignupForm(FlaskForm):
     password    = PasswordField('Password', validators=[DataRequired()])
 
     def validate_username(self, username):
-        import pdb; pdb.set_trace()
         if not username.data:
             raise ValidationError('Please enter a username.')
         if User.query.filter_by(username=username.data).first():
