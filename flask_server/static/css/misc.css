@@ -11,3 +11,42 @@
     float: left; 
     background-color: whitesmoke;
 }
+
+.wantlist {
+    background-color: white;
+    height: 60vh;
+    padding: 10px;
+}
+
+.budget {
+    height: 10vh;
+    margin-bottom: 10vh;
+    padding: 10px;
+}
+
+.thisweek {
+    background-color: white;
+    height: 40vh;
+    padding: 10px;
+}
+
+.column-left {
+    width: 57.5%;
+    margin-right: 5%; 
+}
+
+.column-right {
+    width: 37.5%;
+}
+
+#budget { 
+    background: transparent;
+    border: none;
+    width: 22vw;
+}
+
+.budget-input {
+    border-bottom: 5px solid whitesmoke !important;
+    border-radius: 0;
+    width: 100%;
+}

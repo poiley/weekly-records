@@ -8,8 +8,11 @@ echo "Git repository found!" # Success Message
 
 [ -d "env/" ] && echo "Searching for Python3 virtual environemnt." || (python3 -m venv env) # Detect or create virual environment
 
-source $(pwd)"/env/bin/activate" # Activate virtual environment
+source env/bin/activate # Activate virtual environment
 
 pip install -r requirements.txt # Install python pips
 
-alias activate=". $(pwd)'/.env/bin/activate'"
+alias activate="source $(pwd)'/env/bin/activate'"
+
+export FLASK_APP=flask_server
+
