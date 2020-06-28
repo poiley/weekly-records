@@ -1,0 +1,56 @@
+{% extends "partials/content.html" %}
+{% block content %}
+<div class="home-content">
+{% macro render_field(field, placeholder=None) %}
+{% if field.errors %}
+    <div class="half-width" style="background-color:red;">
+{% elif field.flags.error %}
+    <div class="half-width" >
+{% else %}
+    <div class="half-width" >
+{% endif %}
+        {% set css_class = 'form-control ' + kwargs.pop('class', '') %}
+        {{ field(class=css_class, placeholder=placeholder, **kwargs) }}
+    </div>
+{% endmacro %}
+
+    <div class="row home-content__main">
+        <div class="col-1 column-left">
+            <div class="row wantlist">
+                Wantlist
+            </div>
+        </div>
+        <div class="col-2 column-right">
+            <div class="row budget">
+                {% with errors = get_flashed_messages(category_filter=["error"]) %}
+                    {% if errors %}
+                        <div>
+                            {% for error in errors %}
+                                {{ error }}<br>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+
+                {% if form.errors %}
+                    <div>
+                        {% for field, error in form.errors.items() %}
+                            {% for e in error %}
+                                {{ e }}<br>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <form class="form" id="budget" method="POST" accept-charset="UTF-8">
+                    {{ form.csrf_token }}
+                    {{ render_field(form.budget, placeholder="Budget", class="budget-input", autofocus="", type="float") }}
+                </form>
+            </div>
+            <div class="row thisweek">
+                This Weeks Album
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
