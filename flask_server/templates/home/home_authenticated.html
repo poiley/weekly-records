@@ -22,6 +22,8 @@
         </div>
         <div class="col-2 column-right">
             <div class="row budget">
+
+                <h3>Current:</h3> <h4><i>{{ budget }}</i></h4>
                 {% with errors = get_flashed_messages(category_filter=["error"]) %}
                     {% if errors %}
                         <div>

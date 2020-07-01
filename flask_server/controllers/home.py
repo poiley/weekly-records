@@ -16,6 +16,6 @@ def home():
             current_user.budget = float(form.budget.raw_data[0])
             db.session.commit()
 
-        return render_template('home/home_authenticated.html', form=form)
+        return render_template('home/home_authenticated.html', form=form, budget=current_user.budget)
 
     return render_template('home/home_unauthenticated.html')
